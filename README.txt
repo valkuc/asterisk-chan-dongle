@@ -69,6 +69,9 @@ exten => s,n,Playtones(congestion)
 exten => s,n,Congestion(10)
 exten => h,n,Hangup()
 
+Send USSD example:
+exten => _999,1,DongleSendUSSD(dongle0,*100#)
+
 
 You can also use this:
 
