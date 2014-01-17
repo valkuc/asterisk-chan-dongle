@@ -52,11 +52,25 @@ exten => s,1,Dial(SIP/2001@othersipserver)
 exten => s,n,Hangup()
 
 [othersipserver-incoming]
-
 exten => _X.,1,Dial(Dongle/r1/${EXTEN})
 exten => _X.,n,Hangup
 
-you can also use this:
+
+Example how to check that line is free before dial (ARG1 - call number, ARG2 - dongle):
+
+[macro-dongle-out]
+exten => s,1,DongleStatus(${ARG2},DONGLE_STATUS)
+exten => s,n,GotoIf($[${DONGLE_STATUS} = 2]?:10)
+exten => s,n,Dial(Dongle/${ARG2}/${ARG1},,T)
+exten => h,n,Hangup()
+
+exten => s,10,Answer()
+exten => s,n,Playtones(congestion)
+exten => s,n,Congestion(10)
+exten => h,n,Hangup()
+
+
+You can also use this:
 
 Call using a specific group:
 exten => _X.,1,Dial(Dongle/g1/${EXTEN})
