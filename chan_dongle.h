@@ -1,5 +1,8 @@
 /* 
-   Copyright (C) 2009 - 2010
+   Copyright (C) 2009-2015
+
+   bg <bg_one@mail.ru>
+   http://www.e1550.mobi
    
    Artem Makhutov <artem@makhutov.org>
    http://www.makhutov.org
@@ -20,7 +23,7 @@
 #include "dc_config.h"				/* pvt_config_t */
 
 #define MODULE_DESCRIPTION	"Huawei 3G Dongle Channel Driver"
-#define MAXDONGLEDEVICES	256
+#define MAXDONGLEDEVICES	128
 
 INLINE_DECL const char * dev_state2str(dev_state_t state)
 {
@@ -209,8 +212,8 @@ typedef struct public_state
 	ast_mutex_t			discovery_lock;
 	pthread_t			discovery_thread;		/* The discovery thread handler */
 	volatile int			unloading_flag;			/* no need mutex or other locking for protect this variable because no concurent r/w and set non-0 atomically */
-	ast_mutex_t			round_robin_mtx;
-	struct pvt			* round_robin[MAXDONGLEDEVICES];
+//	ast_mutex_t			round_robin_mtx;
+//	struct pvt			* round_robin[MAXDONGLEDEVICES];	// TODO: remove and make local variable of find_device_by_resource_ex()
 	struct dc_gconfig		global_settings;
 } public_state_t;
 

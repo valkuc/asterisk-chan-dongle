@@ -19,7 +19,7 @@ This channel driver should work with the folowing UMTS cards:
 * Huawei K3765
 
 Check complete list in:
-http://code.google.com/p/asteris-chan-dongle/wiki/Supported_devices_eng
+http://wiki.e1550.mobi/doku.php?id=requirements#list_of_supported_models
 
 Before using the channel driver make sure to:
 
@@ -128,4 +128,4 @@ For reading installation notes please look to INSTALL file.
 
 For additional information about Huawei dongle usage
 look to chan_dongle Wiki at http://wiki.e1550.mobi
-and chan_dongle project home at http://code.google.com/p/asterisk-chan-dongle/
+and chan_dongle project home at https://github.com/bg111/asterisk-chan-dongle/
